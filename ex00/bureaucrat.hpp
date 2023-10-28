@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samiyazubair <samiyazubair@student.42.f    +#+  +:+       +#+        */
+/*   By: szubair <szubair@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:51:01 by samiyazubai       #+#    #+#             */
-/*   Updated: 2023/10/23 17:51:04 by samiyazubai      ###   ########.fr       */
+/*   Updated: 2023/10/24 16:01:46 by szubair          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
     ~Bureaucrat();
     
     // Assignment operator for the Bureaucrat class.
-    Bureaucrat & operator=(Bureaucrat const & obj);
+    Bureaucrat & operator=(Bureaucrat const &rhs);
     
     // Public member function to get the name of a bureaucrat.
     std::string getName() const;
@@ -71,4 +71,4 @@ private:
 };
 
 // Overload the output stream operator to allow printing a Bureaucrat object.
-std::ostream & operator<<(std::ostream & o, Bureaucrat const & obj);
+std::ostream & operator<<(std::ostream & o, Bureaucrat const &bureaucrat);

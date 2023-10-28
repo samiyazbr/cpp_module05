@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samiyazubair <samiyazubair@student.42.f    +#+  +:+       +#+        */
+/*   By: szubair <szubair@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:55:26 by samiyazubai       #+#    #+#             */
-/*   Updated: 2023/10/23 17:55:36 by samiyazubai      ###   ########.fr       */
+/*   Updated: 2023/10/24 16:04:22 by szubair          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,19 @@ Bureaucrat::Bureaucrat(Bureaucrat const & src)
 
 Bureaucrat::~Bureaucrat() {}
 
-Bureaucrat & Bureaucrat::operator=(Bureaucrat const & obj) 
+Bureaucrat & Bureaucrat::operator=(Bureaucrat const &rhs) 
 {
-    if (obj.Grade < MAX_GRADE)
+    if (rhs.Grade < MAX_GRADE)
         throw Bureaucrat::GradeTooHighException();
-    if (obj.Grade > MIN_GRADE)
+    if (rhs.Grade > MIN_GRADE)
         throw  Bureaucrat::GradeTooLowException();
-    this->Grade = obj.Grade;
+    this->Grade = rhs.Grade;
     return *this;
 }
 
-std::ostream & operator<<(std::ostream & o, Bureaucrat const & obj) 
+std::ostream & operator<<(std::ostream & o, Bureaucrat const &bureaucrat) 
 {
-    o << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
+    o << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
     return o;
 }
 
@@ -75,10 +75,10 @@ void Bureaucrat::lower_Grade()
 
 const char * Bureaucrat::GradeTooHighException::what() const throw() 
 {
-    return "Grade Too high";
+    return "Bureaucrat's Grade is Too high";
 }
 
 const char * Bureaucrat::GradeTooLowException::what() const throw() 
 {
-    return "Grade too low";
+    return "Bureaucrat's Grade is too low";
 }
