@@ -2,7 +2,12 @@
 # define FORM_HPP
 
 # include <iostream>
-# include "Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
+
+#define MIN_GRADE 150
+#define MAX_GRADE 1
 
 class Form
 {
@@ -20,9 +25,10 @@ class Form
 		Form &operator=(Form const &rhs);
 
 		std::string get_name(void) const;
+		bool get_signed(void) const;
 		int get_gradeToSign(void) const;
 		int get_gradeToExecute(void) const;
-		void beSigned(Bureaucrat const &bureaucrat);
+		void beSigned(Bureaucrat const &bcrat);
 
 		std::string signed_status(void) const;
 

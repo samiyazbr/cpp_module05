@@ -6,7 +6,7 @@
 /*   By: samiyazubair <samiyazubair@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:51:01 by samiyazubai       #+#    #+#             */
-/*   Updated: 2023/11/15 12:40:30 by samiyazubai      ###   ########.fr       */
+/*   Updated: 2023/11/15 13:38:22 by samiyazubai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 #define MIN_GRADE 150
 #define MAX_GRADE 1
+
+class Form;
 
 class Bureaucrat 
 {

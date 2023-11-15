@@ -1,35 +1,79 @@
 # include "Form.hpp"
+#include "Bureaucrat.hpp"
 
-int main(void)
+int main()
 {
-	std::cout << "--------------Test 1--------------" << std::endl;
-	try
-	{
-		Form form("Contract Form 1", 150, 150);
-		Bureaucrat bureaucrat("Bureaucrat1", 1);
-		form.beSigned(bureaucrat);
-		bureaucrat.raise_Grade();
-	}
-	catch(std::exception &error)
-	{
-		std::cout << "Exeption caused" << std::endl;
-		std::cout << error.what() << std::endl;
-	}
-
-	std::cout << "--------------Test 2--------------" << std::endl;
-
-	try
-	{
-		Form form("Contract Form 2", 4, 6);
-        Bureaucrat bureaucrat("Samiya", 3);
+    try
+    {
+        std::cout <<"***********GRADE TOO LOW TO SIGN TEST**********" << std::endl;
+        Form form("Contract Form", 4, 6);
+        Bureaucrat bureaucrat("samiya", 10);
         bureaucrat.signForm(form);
         std::cout << bureaucrat << std::endl;
         std::cout << form << std::endl;
-	}
-	catch(const std::exception &error)
-	{
-		std::cerr << error.what() << '\n';
-	}
-	
-
+    }
+    catch (const std::exception& e) 
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    try
+    {
+        std::cout << "****************GRADE OK SIGN TEST************" << std::endl;
+        Form form("Contract Form", 4, 6);
+        Bureaucrat bureaucrat("samiya", 3);
+        bureaucrat.signForm(form);
+        std::cout << bureaucrat << std::endl;
+        std::cout << form << std::endl;
+    }
+    catch (const std::exception& e) 
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    try
+    {
+        std::cout<< "************GRADE BELOW MINIMUM TEST*************" << std::endl;
+        Form form("Contract Form", 151, 6);
+        std::cout << form << std::endl;
+    }
+    catch (const std::exception& e) 
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    try
+    {
+        std::cout << "***************GRADE ABOVE MAXIMUM TEST**********"<< std::endl;
+        Form form("Contract Form", 10, 0);
+        std::cout << form << std::endl;
+    }
+    catch (const std::exception& e) 
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    try
+    {
+        std::cout << "**************BE-SIGNED GRADE TOO LOW TEST********" << std::endl;
+        Bureaucrat bureaucrat("samiya", 89);
+        Form form("Contract Form", 25, 12);
+        form.beSigned(bureaucrat);
+        std::cout << bureaucrat << std::endl;
+        std::cout << form << std::endl;
+    }
+    catch (const std::exception& e) 
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    try
+    {
+        std::cout << "**********BE-SIGNED GRADE NORMAL TEST****************" << std::endl;
+        Bureaucrat bureaucrat("samiya", 1);
+        Form form("Contract Form", 25, 12);
+        form.beSigned(bureaucrat);
+        std::cout << bureaucrat << std::endl;
+        std::cout << form << std::endl;
+    }
+    catch (const std::exception& e) 
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    
 }
