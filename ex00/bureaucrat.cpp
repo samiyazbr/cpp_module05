@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: szubair <szubair@student.42.fr>            +#+  +:+       +#+        */
+/*   By: samiyazubair <samiyazubair@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:55:26 by samiyazubai       #+#    #+#             */
-/*   Updated: 2023/10/24 16:04:22 by szubair          ###   ########.fr       */
+/*   Updated: 2023/11/11 14:58:24 by samiyazubai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
