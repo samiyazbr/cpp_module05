@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samiyazubair <samiyazubair@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:55:26 by samiyazubai       #+#    #+#             */
-/*   Updated: 2023/11/12 12:11:31 by samiyazubai      ###   ########.fr       */
+/*   Updated: 2023/11/16 11:49:49 by samiyazubai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ const char * Bureaucrat::GradeTooLowException::what() const throw()
     return "Bureaucrat's Grade is too low";
 }
 
-void Bureaucrat::signForm(Form & form)
+void Bureaucrat::signForm(AForm &form)
 {
     try
     {
@@ -94,4 +94,16 @@ void Bureaucrat::signForm(Form & form)
     {
 		std::cout << Name << " couldn't sign " << form.get_name() << " because " << error.what() << std::endl;
     }
+}
+
+void Bureaucrat::executeForm(AForm const & form) {
+	try
+	{
+		form.execute(*this);
+		std::cout  << Name << " executed " << form.get_name() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "Could not execute form" << " because " << e.what() << std::endl;
+	}
 }

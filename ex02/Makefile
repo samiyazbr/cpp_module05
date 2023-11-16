@@ -1,24 +1,30 @@
-NAME	= form
+NAME		=	forms
 
-CPP		= c++
+SRCS		=	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
-CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
+OBJS		=	$(SRCS:%.cpp=%.o)
 
-SRC		= main.cpp Bureaucrat.cpp Form.cpp
+CC			=	c++
 
-OBJ = $(SRC:%.cpp=%.o)
+FLAGS		=	-std=c++98 -Wall -Wextra -Werror
 
-all		: $(NAME)
+RM			=	rm -rf
 
-$(NAME)	: $(OBJ)
-		$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
+%.o : %.cpp
+	@echo $(MAGENTA)
+	$(CC) $(FLAGS) -c $< -o $@
 
-clean	:
-	rm -rf $(OBJ)
+all:		$(NAME)
 
-fclean	: clean
-	rm -rf $(NAME)
+$(NAME):	$(OBJS)
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
-re		: fclean all
+clean:
+	@$(RM) $(OBJS) *_shrubbery
 
-.PHONY	: all clean fclean re
+fclean:		clean
+	@$(RM) $(NAME)
+
+re:			fclean all
+
+.PHONY:		all clean fclean re

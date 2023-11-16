@@ -6,7 +6,7 @@
 /*   By: samiyazubair <samiyazubair@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:51:01 by samiyazubai       #+#    #+#             */
-/*   Updated: 2023/11/15 14:31:58 by samiyazubai      ###   ########.fr       */
+/*   Updated: 2023/11/15 17:22:07 by samiyazubai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ class Bureaucrat
         void lower_Grade();
 
         void signForm(AForm &form);
+        void executeForm(AForm const & form);
         
         // Nested class representing an exception.
         class GradeTooHighException : public std::exception {
